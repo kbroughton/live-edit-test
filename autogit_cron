@@ -1,0 +1,2 @@
+*/1 * * * *    cd /Users/kbroughton/projects/live-edit-test && /users/kbroughton/projects/live-edit-test/autogit.sh >>/tmp/autogit.log 2>&1
+*/30 * * * *   cp /Users/kbroughton/projects/live-edit-test/testfile /Users/kbroughton/backups/testfile.`date +"%Y-%m-%d_%H-%M-%S"`
