@@ -10,25 +10,27 @@ if [[ ${ST_PATH} != "" ]];then
     if [[ $PLAT == "Darwin" ]];then
         ST_CONF_DIR="${HOME}/.config/sublime"
         echo "Creating $ST_CONF_DIR config dir"
-    fi
-    if [[ ! -f ${ST_CONF_DIR} ]];then
-        mkdir -p ${ST_CONF_DIR}
-    fi
-    if [[ ! -f ${ST_CONF_DIR}/sublimerc.sh ]];then
-        echo "Copying sublimerc.sh to $ST_CONF_DIR"
-        cp sublimerc.sh ${ST_CONF_DIR}
-    fi
+    
+        if [[ ! -f ${ST_CONF_DIR} ]];then
+            mkdir -p ${ST_CONF_DIR}
+        fi
+        if [[ ! -f ${ST_CONF_DIR}/sublimerc.sh ]];then
+            echo "Copying sublimerc.sh to $ST_CONF_DIR"
+            cp sublimerc.sh ${ST_CONF_DIR}
+        fi
+        # Check if ~/.bash_profile already sources sublimerc.sh
+        source_sublimerc=`grep sublimerc ${HOME}/.bash_profile`
+        echo "Adding 'source $ST_CONF_DIR/sublimerc.sh' to bash_profile"
+        if [[ $source_sublimerc == '' ]];then
+            echo "source sublimerc.sh" >> ${HOME}/.bash_profile
+        fi
+    elif [[ $PLAT == Linux' ]]
+
 fi
 
 
 
 
-# Check if ~/.bash_profile already sources sublimerc.sh
-source_sublimerc=`grep sublimerc ${HOME}/.bash_profile`
-echo "Adding 'source $ST_CONF_DIR/sublimerc.sh' to bash_profile"
-if [[ $source_sublimerc == '' ]];then
-    echo "source sublimerc.sh" >> ${HOME}/.bash_profile
-fi
 
 ###############################
 # Git
