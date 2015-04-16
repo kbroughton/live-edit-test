@@ -4,11 +4,12 @@
 # Sublime
 ############################
 PLAT=`uname` 2 > &1
+
 ST_PATH=`which subl`
 if [[ ${ST_PATH} != "" ]];then
-    if
-ST_CONF_DIR="${HOME}/.config/sublime"
-echo "Creating $ST_CONF_DIR config dir"
+    if [[ $PLAT == "Darwin" ]];then
+        ST_CONF_DIR="${HOME}/.config/sublime"
+        echo "Creating $ST_CONF_DIR config dir"
 if [[ ! -f ${ST_CONF_DIR} ]];then
     mkdir -p ${ST_CONF_DIR}
 fi
