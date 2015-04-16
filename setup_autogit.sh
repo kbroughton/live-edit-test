@@ -1,4 +1,5 @@
 PROJECTS_HOME=$HOME/PROJECTS
+GIT_PROJECT="live-edit-test
 
 if [[ ! -f ${PROJECTS_HOME} ]];then
     mkdir -p $PROJECTS_HOME
@@ -61,10 +62,10 @@ fi
 # Git
 ###############################
 
-pushd $PRO
+pushd "$PROJECTS_HOME" > /dev/null
 echo "Cloning live-edit-test"
 git clone git@github.com:kbroughton/live-edit-test.git
-
+pushd $PROJECT_HOME 
 echo "Creating live-edit and my-edits git branches"
 LIVE_EDITS_BRANCH=live-edit
 MY_EDITS_BRANCH=my-edits
