@@ -1,6 +1,8 @@
 PROJECTS_HOME=$HOME/PROJECTS
 
-mkdir -p $PROJECTS_HOME
+if [[ ! -f ${PROJECTS_HOME} ]];then
+    mkdir -p $PROJECTS_HOME
+fi
 
 ############################
 # Sublime
@@ -59,6 +61,7 @@ fi
 # Git
 ###############################
 
+pushd $PRO
 echo "Cloning live-edit-test"
 git clone git@github.com:kbroughton/live-edit-test.git
 
