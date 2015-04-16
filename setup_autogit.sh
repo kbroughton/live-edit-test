@@ -38,7 +38,7 @@ fi
 ############################
 # Sublime
 ############################
-PLAT=`uname` 2 > &1
+PLAT="`uname`"
 
 ST_PATH=`which subl`
 if [[ ${ST_PATH} != "" ]];then
