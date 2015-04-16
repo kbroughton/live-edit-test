@@ -1,4 +1,6 @@
+PROJECTS_HOME=$HOME/PROJECTS
 
+mkdir -p $PROJECTS_HOME
 
 ############################
 # Sublime
@@ -57,7 +59,7 @@ fi
 # Git
 ###############################
 
-echo ""
+echo "Cloning live-edit-test"
 git clone git@github.com:kbroughton/live-edit-test.git
 
 echo "Creating live-edit and my-edits git branches"
