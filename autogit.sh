@@ -4,6 +4,6 @@ if [[ "$BRANCH" == 'live-edit' ]];then
     echo q >> testfile
     git add testfile
     git commit -am "kbroughton"
-    git push origin/live-edit
-    git push origin/$USER-edits
+    git push origin live-edit
+    git push origin $USER-edits
 fi
