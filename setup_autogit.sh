@@ -24,7 +24,31 @@ if [[ ${ST_PATH} != "" ]];then
         if [[ $source_sublimerc == '' ]];then
             echo "source sublimerc.sh" >> ${HOME}/.bash_profile
         fi
-    elif [[ $PLAT == Linux' ]]
+
+echo "Installing sublime plugins"
+if [[ -f "${ST2_PACKAGES_DIR}" ]];then
+    pushd "${ST2_PACKAGES_DIR}"
+
+    echo "Installing sublime autosave plugin"
+    git clone https://github.com/jamesfzhang/auto-save.git
+    # Check if line exists in User/Default (OSX).sublime-keymap
+    KEYMAP_LINE="{ "keys": ["ctrl+shift+s"], "command": "auto_save" }"
+
+elif [[ -f "${ST3_PACKAGES_DIR}" ]];then
+    pushd ${ST3_PACKAGES_DIR}
+    echo "Installing sublime autosave plugin"
+    git clone https://github.com/jamesfzhang/auto-save.git
+    # Check if line exists in User/Default (OSX).sublime-keymap
+    KEYMAP_LINE="{ "keys": ["ctrl+shift+s"], "command": "auto_save" }"
+
+else 
+    echo "Did not find sublimetext 2 or 3 at $ST2_PACKAGES_DIR or $ST3_PACKAGES_DIR"
+    exit 1
+fi
+
+    elif [[ $PLAT == "Linux" ]];then
+        echo "Linux not yet supported"
+    fi
 
 fi
 
@@ -43,24 +67,4 @@ MY_EDITS_BRANCH=my-edits
 git branch ${LIVE_EDITS_BRANCH}
 git branch ${MY_EDITS_BRANCH}
 
-echo "Installing sublime plugins"
-if [[ -f "${ST2_PACKAGES_DIR}" ]];then
-	pushd "${ST2_PACKAGES_DIR}"
-
-    echo "Installing sublime autosave plugin"
-	git clone https://github.com/jamesfzhang/auto-save.git
-    # Check if line exists in User/Default (OSX).sublime-keymap
-    KEYMAP_LINE="{ "keys": ["ctrl+shift+s"], "command": "auto_save" }"
-
-elif [[ -f "${ST3_PACKAGES_DIR}" ]];then
-    pushd ${ST3_PACKAGES_DIR}
-    echo "Installing sublime autosave plugin"
-    git clone https://github.com/jamesfzhang/auto-save.git
-    # Check if line exists in User/Default (OSX).sublime-keymap
-    KEYMAP_LINE="{ "keys": ["ctrl+shift+s"], "command": "auto_save" }"
-
-else 
-    echo "Did not find sublimetext 2 or 3 at $ST2_PACKAGES_DIR or $ST3_PACKAGES_DIR"
-    exit 1
-fi
 
