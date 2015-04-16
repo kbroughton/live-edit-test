@@ -1,3 +1,4 @@
+#!/bin/bash
 BRANCH=`git branch | grep '*' | cut -f2 -d' '`
 if [[ "$BRANCH" == 'live-edit' ]];then
     echo "On branch live-edit"
