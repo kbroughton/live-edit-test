@@ -39,7 +39,7 @@ if [[ ${ST_PATH} != "" ]];then
             git clone https://github.com/jamesfzhang/auto-save.git
             # Check if line exists in User/Default (OSX).sublime-keymap
             KEYMAP_LINE="{ "keys": ["ctrl+shift+s"], "command": "auto_save" }"
-        
+            popd
         elif [[ -f "${ST3_PACKAGES_DIR}" ]];then
             pushd ${ST3_PACKAGES_DIR}
             echo "Installing sublime autosave plugin"
@@ -68,7 +68,8 @@ echo "Add source ~/.git_prompt.sh to .bash_profile"
 source_git_prompt=`grep git_prompt ${HOME}/.bash_profile`
 echo "Adding 'source $HOME/.git_prompt.sh' to bash_profile"
 if [[ $source_git_prompt == '' ]];then
-    echo "source sublimerc.sh" >> ${HOME}/.bash_profile
+    cp 
+    echo "source $HOME/.git_prompt.sh" >> ${HOME}/.bash_profile
 fi
 pushd "$PROJECTS_HOME" > /dev/null
 echo "Cloning $GIT_PROJECT"
