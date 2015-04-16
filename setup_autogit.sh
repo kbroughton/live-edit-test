@@ -57,10 +57,12 @@ fi
 # Git
 ###############################
 
+echo ""
+git clone git@github.com:kbroughton/live-edit-test.git
+
 echo "Creating live-edit and my-edits git branches"
 LIVE_EDITS_BRANCH=live-edit
 MY_EDITS_BRANCH=my-edits
-git clone 
 git branch ${LIVE_EDITS_BRANCH}
 git branch ${MY_EDITS_BRANCH}
 
