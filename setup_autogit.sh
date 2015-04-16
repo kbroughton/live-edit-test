@@ -46,7 +46,7 @@ if [[ ${ST_PATH} != "" ]];then
             git clone https://github.com/jamesfzhang/auto-save.git
             # Check if line exists in User/Default (OSX).sublime-keymap
             KEYMAP_LINE="{ "keys": ["ctrl+shift+s"], "command": "auto_save" }"
-        
+            popd
         else 
             echo "Did not find sublimetext 2 or 3 at $ST2_PACKAGES_DIR or $ST3_PACKAGES_DIR"
             exit 1
@@ -59,30 +59,4 @@ if [[ ${ST_PATH} != "" ]];then
 fi
 
 
-###############################
-# Git
-###############################
-
-echo "Add source ~/.git_prompt.sh to .bash_profile"
-# Check if ~/.bash_profile already sources sublimerc.sh
-source_git_prompt=`grep git_prompt ${HOME}/.bash_profile`
-echo "Adding 'source $HOME/.git_prompt.sh' to bash_profile"
-if [[ $source_git_prompt == '' ]];then
-    cp 
-    echo "source $HOME/.git_prompt.sh" >> ${HOME}/.bash_profile
-fi
-pushd "$PROJECTS_HOME" > /dev/null
-echo "Cloning $GIT_PROJECT"
-git clone $GIT_URL
-pushd $PROJECT_HOME 
-git fetch --all
-
-echo "Creating live-edit and my-edits git branches"
-LIVE_EDIT_BRANCH=live-edit
-MY_EDITS_BRANCH=my-edits
-
-#git branch ${LIVE_EDIT_BRANCH}  # already exists
-git branch --set-upstream-to=origin/live-edit live-edit
-git branch ${MY_EDITS_BRANCH}
-git branch --set-upstream-to=origin/$USER-edits $USER-edits
 
