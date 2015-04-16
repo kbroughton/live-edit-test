@@ -11,7 +11,7 @@ fi
 ###############################
 
 pushd "$PROJECTS_HOME" > /dev/null
-echo "Cloning $GIT_PROJECT"
+echo "***** Cloning $GIT_PROJECT *****"
 git clone $GIT_URL
 pushd $PROJECT_HOME 
 git fetch --all
@@ -25,11 +25,12 @@ git branch --set-upstream-to=origin/live-edit live-edit
 git branch ${MY_EDITS_BRANCH}
 git branch --set-upstream-to=origin/$USER-edits $USER-edits
 
-echo "***** Add source ~/.git_prompt.sh to .bash_profile *****"
+
 # Check if ~/.bash_profile already sources sublimerc.sh
 source_git_prompt=`grep git_prompt ${HOME}/.bash_profile`
 echo "***** Adding 'source $HOME/.git_prompt.sh' to bash_profile *****"
 if [[ $source_git_prompt == '' ]];then
+    echo "***** Adding source ~/.git_prompt.sh to .bash_profile *****"
     cp 
     echo "source $HOME/.git_prompt.sh" >> ${HOME}/.bash_profile
 fi
@@ -43,7 +44,7 @@ ST_PATH=`which subl`
 if [[ ${ST_PATH} != "" ]];then
     if [[ $PLAT == "Darwin" ]];then
         ST_CONF_DIR="${HOME}/.config/sublime"
-        echo "Creating $ST_CONF_DIR config dir"
+        echo "***** Creating $ST_CONF_DIR config dir *****"
     
         if [[ ! -f ${ST_CONF_DIR} ]];then
             mkdir -p ${ST_CONF_DIR}
@@ -81,7 +82,7 @@ if [[ ${ST_PATH} != "" ]];then
         fi
 
     elif [[ $PLAT == "Linux" ]];then
-        echo "Linux not yet supported"
+        echo "***** Linux not yet supported *****"
     fi
 
 fi
