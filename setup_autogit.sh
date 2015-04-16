@@ -67,10 +67,12 @@ pushd "$PROJECTS_HOME" > /dev/null
 echo "Cloning $GIT_PROJECT"
 git clone $GIT_URL
 pushd $PROJECT_HOME 
+git fetch --all
+
 echo "Creating live-edit and my-edits git branches"
-LIVE_EDITS_BRANCH=live-edit
+LIVE_EDIT_BRANCH=live-edit
 MY_EDITS_BRANCH=my-edits
 git branch ${LIVE_EDIT_BRANCH}
 git branch ${MY_EDITS_BRANCH}
-
+git branch --set-upstream-to=origin/<branch> live-edit
 
