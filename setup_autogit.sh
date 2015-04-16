@@ -1,6 +1,6 @@
 PROJECTS_HOME=$HOME/PROJECTS
 GIT_PROJECT="live-edit-test"
-GIT_URL="git@github.com:kbroughton/live-edit-test.git
+GIT_URL="git@github.com:kbroughton/$GIT_PROJECT.git"
 
 if [[ ! -f ${PROJECTS_HOME} ]];then
     mkdir -p $PROJECTS_HOME
@@ -70,7 +70,7 @@ pushd $PROJECT_HOME
 echo "Creating live-edit and my-edits git branches"
 LIVE_EDITS_BRANCH=live-edit
 MY_EDITS_BRANCH=my-edits
-git branch ${LIVE_EDITS_BRANCH}
+git branch ${LIVE_EDIT_BRANCH}
 git branch ${MY_EDITS_BRANCH}
 
 
