@@ -31,7 +31,7 @@ source_git_prompt=`grep git_prompt ${HOME}/.bash_profile`
 echo "***** Adding 'source $HOME/.git_prompt.sh' to bash_profile *****"
 if [[ $source_git_prompt == '' ]];then
     echo "***** Adding source ~/.git_prompt.sh to .bash_profile *****"
-    cp 
+    cp ".git_prompt.sh" "$HOME/"
     echo "source $HOME/.git_prompt.sh" >> ${HOME}/.bash_profile
 fi
 
