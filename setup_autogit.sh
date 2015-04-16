@@ -63,6 +63,13 @@ fi
 # Git
 ###############################
 
+echo "Add source ~/.git_prompt.sh to .bash_profile"
+# Check if ~/.bash_profile already sources sublimerc.sh
+source_sublimerc=`grep  ${HOME}/.bash_profile`
+echo "Adding 'source $ST_CONF_DIR/sublimerc.sh' to bash_profile"
+if [[ $source_sublimerc == '' ]];then
+    echo "source sublimerc.sh" >> ${HOME}/.bash_profile
+fi
 pushd "$PROJECTS_HOME" > /dev/null
 echo "Cloning $GIT_PROJECT"
 git clone $GIT_URL
