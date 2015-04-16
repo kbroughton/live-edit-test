@@ -3,7 +3,12 @@ if [[ "$BRANCH" == 'live-edit' ]];then
     echo "On branch live-edit"
     echo "**** git pull ***"
     git pull
-    echo q >> testfile
+    PLAT=`uname`
+    if [[ $PLAT == 'Linux' ]];then
+	echo b >> testfile
+    else
+	echo q >> testfile
+    fi
     echo "**** git add and git commit ****"
     git add testfile
     git commit -am "`hostname`"
