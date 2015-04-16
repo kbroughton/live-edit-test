@@ -1,4 +1,11 @@
 
+
+############################
+# Sublime
+############################
+
+SUBL_PATH=`which subl`
+if
 ST_CONF_DIR="${HOME}/.config/sublime"
 echo "Creating $ST_CONF_DIR config dir"
 if [[ ! -f ${ST_CONF_DIR} ]];then
@@ -17,6 +24,10 @@ echo "Adding 'source $ST_CONF_DIR/sublimerc.sh' to bash_profile"
 if [[ $source_sublimerc == '' ]];then
     echo "source sublimerc.sh" >> ${HOME}/.bash_profile
 fi
+
+###############################
+# Git
+###############################
 
 echo "Creating live-edit and my-edits git branches"
 LIVE_EDITS_BRANCH=live-edit
