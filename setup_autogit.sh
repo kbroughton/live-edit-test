@@ -10,14 +10,17 @@ if [[ ${ST_PATH} != "" ]];then
     if [[ $PLAT == "Darwin" ]];then
         ST_CONF_DIR="${HOME}/.config/sublime"
         echo "Creating $ST_CONF_DIR config dir"
-if [[ ! -f ${ST_CONF_DIR} ]];then
-    mkdir -p ${ST_CONF_DIR}
+    fi
+    if [[ ! -f ${ST_CONF_DIR} ]];then
+        mkdir -p ${ST_CONF_DIR}
+    fi
+    if [[ ! -f ${ST_CONF_DIR}/sublimerc.sh ]];then
+        echo "Copying sublimerc.sh to $ST_CONF_DIR"
+        cp sublimerc.sh ${ST_CONF_DIR}
+    fi
 fi
 
-if [[ ! -f ${ST_CONF_DIR}/sublimerc.sh ]];then
-    echo "Copying sublimerc.sh to $ST_CONF_DIR"
-    cp sublimerc.sh ${ST_CONF_DIR}
-fi
+
 
 
 # Check if ~/.bash_profile already sources sublimerc.sh
