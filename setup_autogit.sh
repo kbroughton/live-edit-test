@@ -72,7 +72,9 @@ git fetch --all
 echo "Creating live-edit and my-edits git branches"
 LIVE_EDIT_BRANCH=live-edit
 MY_EDITS_BRANCH=my-edits
+
 #git branch ${LIVE_EDIT_BRANCH}  # already exists
-git branch ${MY_EDITS_BRANCH}
 git branch --set-upstream-to=origin/live-edit live-edit
+git branch ${MY_EDITS_BRANCH}
+git branch --set-upstream-to=origin/$USER-edits $USER-edits
 
